@@ -1,0 +1,61 @@
+.hide-me{
+   display: none;
+}
+h1{color: blue;
+
+}
+.red{
+   color: red;
+}
+.green{
+   color: Green;
+}
+.input-amount{
+   width: 25%;
+}
+.column {
+    height: inherit;
+    width: inherit;
+    border: blue;
+    margin: 10px;
+}
+.box{
+    margin: 2px;
+}
+
+.catch-me{
+    border: solid black;
+}
+.middle-it{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    width: auto;
+}
+
+.callout{
+
+    width: 100%;
+}
+.catch-me{
+    background-color: rgb(241, 244, 247);
+}
+.box{
+    text-align: center;
+    font-size: large;
+}
+.box-name{
+    text-align: center;
+    font-size: x-large;
+}
+.dark{
+    background-color: rgb(86, 81, 81);
+    margin-left: 20px;
+    margin-right: 30px;
+}
+.icons{
+    height: 80px;
+    width:80px;
+}
+h4{
+    color: #f6ebe2;
+}
