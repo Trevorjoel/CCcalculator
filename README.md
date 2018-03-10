@@ -1,5 +1,6 @@
 # CCcalculator
 Crypto currency calculator
+
 This is a practice JS exercise.
 
 The objective is for users to calculate their crypto currency portfolio profits back into fiat currency(USD so Far).
@@ -11,3 +12,5 @@ The objective is for users to calculate their crypto currency portfolio profits 
 4)The user can then add their initial fiat investment to calculate their overall profits.
 
 Just a bit of fun but could be written into wallet applications.
+
+This will be rebuilt and completed with react.js
