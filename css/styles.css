@@ -47,10 +47,12 @@ h1{color: blue;
     text-align: center;
     font-size: x-large;
 }
-.dark{
+.button-icon{
     background-color: rgb(86, 81, 81);
-    margin-left: 20px;
-    margin-right: 30px;
+}
+.dark{
+    background-color: #565151;
+
 }
 .icons{
     height: 80px;
@@ -58,4 +60,12 @@ h1{color: blue;
 }
 h4{
     color: #f6ebe2;
+}
+.input-amount{
+align-content:center ;
+    length:100px;
+
+}
+th{
+    background-color: #d4e7ed;
 }

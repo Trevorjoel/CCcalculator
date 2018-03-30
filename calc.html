@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en" dir="ltr">
 <head>
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Calculator</title>
@@ -8,37 +9,77 @@
 
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 <body>
 <div class="grid-container ">
-<h1 class="middle-it">Crypto currency calculator</h1>
-    <div class="callout large-12 cell dark">
-        <h4 class="box-name">Select the coins you would like to calculate:</h4>
-<div class="row">
-
-<div class="small-2 large-2 medium-2 columns">
-        <button class="button" id="bitcoin" >Bitcoin</button>
-</div>
-    <div class="small-2 large-2 medium-2 columns">
-        <button class="button" id="ethereum" >Etherium</button>
-    </div>
-    <div class="small-2 large-2 medium-2 columns">
-        <button class="button" id="litecoin" >litecoin</button>
-    </div>
-    <div class="small-2 large-2 medium-2 columns">
-        <button class="button" id="ripple" >Ripple</button>
-    </div>
-</div>
+    <div class="grid-x grid-padding-x">
+        <h1 class="middle-it">Crypto currency calculator</h1>
+        <div class="callout large-12 cell dark">
 
 
-<div id="crypto-container" class="row">
+            <div class="row">
 
-</div>
+                <div class="small-2 large-2 medium-2 columns">
+
+                    <button id="bitcoin" class="button button-icon">
+                        <img  class='icon' src='./icons/bitcoin.png'>
+                        <p>Bitcoin</p>
+                    </button>
+                </div>
+                <div class="small-2 large-2 medium-2 columns">
+                    <button id="ethereum" class="button button-icon">
+                        <img  class='icon' src='./icons/ethereum.png'>
+                        <p>Ethereum</p>
+                    </button>
+                </div>
+                <div class="small-2 large-2 medium-2 columns">
+                    <button id="litecoin" class="button button-icon">
+                        <img  class='icon' src='./icons/litecoin.png'>
+                        <p>Litecoin</p>
+                    </button>
+                </div>
+                <div class="small-2 large-2 medium-2 columns">
+                    <button id="ripple" class="button button-icon">
+                        <img  class='icon' src='./icons/ripple.png'>
+                        <p>ripple</p>
+                    </button>
+                </div>
+
+            </div>
+            <h4 class="box-name">Select the coins you would like to calculate:</h4>
+
+            <div id="crypto-container" class="row">
+
+            </div>
         </div>
-</div>
-<script src="calcjs.js"></script>
+        <table >
+        <th class="box box-name">Currency</th>
+            <th class="box box-name">Price USD</th>
+            <th class="box box-name">1 Hour</th>
+            <th class="box box-name">24 Hours</th>
+            <th class="box box-name">7 Days</th>
+            <th class="box box-name">Enter the amount you own
+                 <!---  --->
+            </th>
+            <th class="box box-name">
+        </th>
+            <tr id ="new_row">
+                <td class="box box-name">-</td>
+                <td class="box box-name">-</td>
+                <td class="box box-name">-</td>
+                <td class="box box-name">-</td>
+                <td class="box box-name">-</td>
+                <td class="box box-name">-</td>
+                <td class="box box-name"><form>
+                    <input id='calculate1' type="button" value="Submit" onclick='calcTotalVal()'>
+                </form></td>
+            </tr>
 
+        </table>
+    </div>
+    <script src="calcjs.js"></script>
+</div>
 </body>
 </html>

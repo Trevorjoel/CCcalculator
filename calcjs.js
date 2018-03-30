@@ -1,12 +1,15 @@
 var priceArray =[];
 var timesCalled = 0;
-var url = ('https://api.coinmarketcap.com/v1/ticker/');
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+var url = 'https://api.coinmarketcap.com/v1/ticker/';
+const addRow = document.getElementById('new_row');
 var cryptoContainer = document.getElementById('crypto-container');
 var catchThing = document.getElementById('row_'+ timesCalled + '"');
 var bitCoin = document.getElementById("bitcoin");
 var valueInFiat ='';
 var newRows = "";
 var newRowEnd = "";
+
 bitCoin.addEventListener('click', function () {
 url = url + 'bitcoin';
     callCoin();
@@ -38,7 +41,8 @@ ripple.addEventListener('click', function () {
 
 function callCoin(){
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', url);
+    ourRequest.open('GET', proxyurl + url);
+
     ourRequest.onload = function () {
         var ourData = JSON.parse(ourRequest.responseText);
 
@@ -61,7 +65,16 @@ function renderHTML(data) {
 
     var htmlString = "";
     for(i = 0; i < data.length; i++){
-        htmlString += "<div id='' class='flex-dir-column catch-me box small-11 large-3 medium-5 columns'><div class='box box-name'><img class='icons' src='./icons/" + data[i].id + ".png'> </br>" + data[i].name + "<br> " +
+        htmlString += "<tr>" +
+            "<td class='box box-name'>"+ data[i].name +"<br /><img class='icons' src='./icons/" + data[i].id + ".png'></td>" +
+            "<td class='box box-name'>" + data[i].price_usd +"</td>" +
+            "<td id='percent_change_1h' class='box box-name percent_change_1h"+ timesCalled + "'>" + data[i].percent_change_1h +"</td>" +
+            "<td id='percent_change_24h' class='box box-name percent_change_24h"+ timesCalled +"'>" + data[i].percent_change_24h +"</td>" +
+            "<td id='percent_change_7d' class='box box-name percent_change_7d"+ timesCalled + "'>" + data[i].percent_change_7d +"</td>" +
+            "<td class='input-amount'><input    type=\"text\" name=\"amount\" id='submit-amount'></td>" +
+            "<td class='box box-name' >-</td></tr>";
+
+            /*"<div id='' class='flex-dir-column catch-me box small-11 large-3 medium-5 columns'><div class='box box-name'><img class='icons' src='./icons/" + data[i].id + ".png'> </br>" + data[i].name + "<br> " +
             "" + data[i].price_usd + " USD</div><div class='box'> 1 hour : </div>" +
             "<div id='percent_change_1h' class='box percent_change_1h"+ timesCalled + "'>"
             + data[i].percent_change_1h + " % </div><div> 24 hours :</div> " +
@@ -75,11 +88,11 @@ function renderHTML(data) {
             "\n" +
             "        <input id='calculate1' type=\"button\" value=\"Submit\" onclick='calcTotalVal()'>\n" +
             "    </form></div>";
-
+*/
 
     }
 
-    cryptoContainer.insertAdjacentHTML('afterbegin',htmlString);
+    addRow.insertAdjacentHTML('beforeBegin',htmlString);
 
 
     return htmlString;

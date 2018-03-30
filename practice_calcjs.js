@@ -1,3 +1,4 @@
+// This file is for practicing and testing code
 /*
 // This is an object
 var myCat ={
@@ -62,7 +63,7 @@ btn.addEventListener('click', function () {
 */
 
 
-
+/*
 var newRows = '';
 function gridLogic() {
     var elems = document.getElementsByClassName('catch-me');
@@ -81,3 +82,14 @@ function gridLogic() {
 }
 gridLogic();
 console.log(newRows);
+for (hashnum = 1; hashnum <= 5; hashnum++){
+    console.log('#')
+}
+console.log('/n');
+*/
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = "https://api.coinmarketcap.com/v1/ticker/bitcoin"; // site that doesn’t send Access-Control-*
+fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
+    .then(response => response.text())
+    .then(contents => console.log(contents))
+    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
