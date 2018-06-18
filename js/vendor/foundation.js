@@ -1107,7 +1107,7 @@ function OverlapArea(element, parent, lrOnly, tbOnly, ignoreBottom) {
  * @function
  * @param {jQuery || HTML} element - jQuery object or DOM element for which to get the dimensions. Can be any element other that document or window.
  * @returns {Object} - nested object of integer pixel values
- * TODO - if element is window, return only those values.
+ * 1TODO - if element is window, return only those values.
  */
 function GetDimensions(elem) {
   elem = elem.length ? elem[0] : elem;
