@@ -3,6 +3,8 @@ Crypto currency calculator
 
 This is a practice JS exercise.
 
+The Relevant files are calc.html and calc.js
+
 The objective is for users to calculate their crypto currency portfolio profits back into fiat currency(USD so Far).
 
 1) Select Cryoto currency(ies) they own. See the movement in percentages.
