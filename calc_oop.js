@@ -2,40 +2,44 @@
 // Model Controller
 
 let cryptoModel = (function () {
-    let Currency;
+
+let Currency;
 let ourData;
-
-function getAPIData(){
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        let url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin';
-
+let newCurrency={};
+    let url = 'https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/bitcoin';
+   function getAPIData(url) {
+        // Return a new promise.
         return new Promise(function(resolve, reject) {
-            // Do request
-            var ourRequest = new XMLHttpRequest();
-            ourRequest.open('GET', proxyurl + url);
+            // Do the usual XHR stuff
+            var req = new XMLHttpRequest();
+            req.open('GET', url);
 
-            ourRequest.onload = function() {
-                resolve(ourRequest.responseText);
+            req.onload = function() {
+                // This is called even on 404 etc
+                // so check the status
+                if (req.status == 200) {
+                    // Resolve the promise with the response text
+                    resolve(req.response);
+                }
+                else {
+                    // Otherwise reject with the status text
+                    // which will hopefully be a meaningful error
+                    reject(Error(req.statusText));
+                }
+            };
 
-                ourData = JSON.parse(ourRequest.responseText);
-                console.log('Promise fulfilled');
+            // Handle network errors
+            req.onerror = function() {
+                reject(Error("Network Error"));
+            };
 
-            }
-            ourRequest.onerror = function () {
-                console.log('Promise rejected');
-                reject(ourRequest.responseText);
-            }
-
-            ourRequest.send();
-
+            // Make the request
+            req.send();
         });
-
     }
-
-    // Construct objects from API data
-
-    getAPIData()
-        .then(function () {
+    getAPIData(url).then(function(response) {
+        console.log("Then A!");
+        ourData = JSON.parse(response);
 
             Currency = function (ourData) {
                 this.id = ourData[0].id;
@@ -47,27 +51,39 @@ function getAPIData(){
 
             };
 
-            let newCurrency = new Currency(ourData);
-            console.log(newCurrency);
-            return newCurrency;
+    }, function(error) {
+        console.error("Failed!", error);
+    }).then(function (newCurrency){
+        console.log("Then B");
+        return {
+            newCurrency : new Currency(ourData)
+
         }
 
-)
-   .catch()
+    }).then(function (newCurrency) {
+        console.log(newCurrency)
+    })
 
-    let x = 22;
-    let add = function (a) {
-        return x + a;
-    }
-
-
+    console.log("Outside the promise");
     console.log(newCurrency);
-})();
+})(cryptoUI);
 
-console.log(newCurrency);
-let cryptoController = (function () {
+//console.log("Outside the module", getAPIData.newCurrency)
+
+
+let cryptoController = (function (cryptMdl, cryptUI) {
+
+
     // controller code
-})();
+    let bitCoin = document.getElementById("bitcoin");
+    bitCoin.addEventListener('click', function () {
+        //url = url + 'bitcoin';
+
+        bitCoin.classList.add("hide-me");
+        console.log('Button clicked');
+
+    });
+})(cryptoModel, cryptoUI);
 
 let cryptoUI = (function () {
     // UI code

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<div></div>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Calculator</title>
+
+
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+<div class="grid-container ">
+    <div class="grid-x grid-padding-x">
+        <h1 class="middle-it">Crypto currency TEST ZONE</h1>
+        <div class="callout large-12 cell dark">
+
+
+            <div class="row">
+
+                <div class="small-2 large-2 medium-2 columns">
+
+                    <button id="bitcoin" class="button button-icon">
+                        <img  class='icon' src='./icons/bitcoin.png'>
+                        <p>Bitcoin</p>
+                    </button>
+                </div>
+                <div class="small-2 large-2 medium-2 columns">
+                    <button id="ethereum" class="button button-icon">
+                        <img  class='icon' src='./icons/ethereum.png'>
+                        <p>Ethereum</p>
+                    </button>
+                </div>
+                <div class="small-2 large-2 medium-2 columns">
+                    <button id="litecoin" class="button button-icon">
+                        <img  class='icon' src='./icons/litecoin.png'>
+                        <p>Litecoin</p>
+                    </button>
+                </div>
+                <div class="small-2 large-2 medium-2 columns">
+                    <button id="ripple" class="button button-icon">
+                        <img  class='icon' src='./icons/ripple.png'>
+                        <p>ripple</p>
+                    </button>
+                </div>
+
+            </div>
+            <h4 class="box-name">Select the coins you would like to calculate:</h4>
+
+            <div id="crypto-container" class="row">
+
+            </div>
+        </div>
+        <table >
+            <th id="table-label" class="box box-name">Currency</th>
+            <th class="box box-name">Price USD</th>
+            <th class="box box-name">1 Hour</th>
+            <th class="box box-name">24 Hours</th>
+            <th class="box box-name">7 Days</th>
+            <th class="box box-name">Enter the amount you own
+
+            </th>
+            <th class="box box-name">
+
+            </th>
+
+            <tr id ="new_row">
+                <!--
+                   We want to add our handlebars here creating new row each time a coin is called
+                    with the callCoin function
+
+                <script src="node_modules/handlebars/dist/handlebars.js"></script>
+                <script id="currency-template" type="text/template">
+
+                </script>
+
+-->
+            </tr>
+
+        </table>
+    </div>
+    <script src="js_test_zone.js"></script>
+</div>
+</body>
+</html>
